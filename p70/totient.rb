@@ -1,3 +1,5 @@
+# Time: 11.81s (without generating primes)
+
 # Generate a sufficient list of primes
 
 primes = [2]
@@ -34,5 +36,5 @@ primes.each { |check_prime|
     end
   }
 }
-
+ 
 p best_value
