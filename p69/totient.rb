@@ -1,3 +1,5 @@
+# Generate a sufficient list of primes
+
 primes = [2]
 i = 3
 
@@ -10,6 +12,8 @@ i = 3
   }
   primes.push(i) if is_prime
 }
+
+# Multiply primes together until the value is as large as possible
 
 value = 1
 next_value = primes.shift
