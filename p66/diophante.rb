@@ -1,27 +1,29 @@
+# Time: 0.01s
+
 #==============================================================================
 # ** Fraction
 #==============================================================================
 
 class Fraction
-  
+
   attr_reader   :numerator
   attr_reader   :denominator
-  
+
   def initialize(numerator, denominator)
     @numerator = numerator
     @denominator = denominator
   end
-  
+
   def add(integer)
     @numerator += integer * @denominator
   end
-  
+
   def invert
     temp = @denominator
     @denominator = @numerator
     @numerator = temp
   end
-  
+
 end
 
 #==============================================================================
@@ -30,7 +32,6 @@ end
 
 best_d = 0
 max_solution = 0
-t = Time.now
 
 1000.times { |d|
   next if d == 0
@@ -63,5 +64,5 @@ t = Time.now
     max_solution = fraction.numerator
   end
 }
-p Time.now - t
+
 p best_d

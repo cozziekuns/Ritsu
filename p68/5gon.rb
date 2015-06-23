@@ -1,6 +1,8 @@
+# Time: 0.86s
+
 def valid?(array)
   check_sum = array[4] + array[5] + array[9]
-  4.times { |i| 
+  4.times { |i|
     sum = array[i] + array[i + 5] + array[i + 6]
     return false if sum != check_sum
   }
