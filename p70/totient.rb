@@ -1,19 +1,8 @@
-# Time: 11.81s (without generating primes)
+# Time: 11.81s
 
 # Generate a sufficient list of primes
-
-primes = [2]
-i = 3
-
-(3..100000).step(2) { |i|
-  is_prime = true
-  primes.each { |prime| 
-    break if not is_prime
-    break if Math.sqrt(i) < prime
-    is_prime = false if i % prime == 0
-  }
-  primes.push(i) if is_prime
-}
+require "prime"
+primes = Prime.first(10000)
 
 best_ratio = 5
 best_value = 0
@@ -36,5 +25,5 @@ primes.each { |check_prime|
     end
   }
 }
- 
+
 p best_value
