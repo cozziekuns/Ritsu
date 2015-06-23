@@ -1,10 +1,13 @@
-# Time: 96.55s
+# Time: 9.24s
 require "prime"
 
 # Generate a sufficient list of primes
 @prime_hash = {}
 @primes = Prime.first(100000)
 @primes.each { |prime| @prime_hash[prime] = true }
+
+# Memoize prime factors
+@factors_hash = {}
 
 # Fast way of calculating totient function
 def totient(n)
@@ -19,7 +22,13 @@ end
 # "Fast" method of calculating prime factors
 def prime_factors(n)
   factors = []
+  old_n = n
   @primes.each { |prime|
+    if @factors_hash[n]
+      factors += @factors_hash[n]
+      factors.uniq!
+      break
+    end
     if n % prime == 0
       factors.push(prime)
       n /= prime
@@ -31,8 +40,8 @@ def prime_factors(n)
       break
     end
   }
+  @factors_hash[old_n] = factors
   return factors
 end
 
 answer =  2.upto(1000000).inject(0) { |total, curr| total += totient(curr) }
-p answer
