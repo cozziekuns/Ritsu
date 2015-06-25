@@ -1,2 +1,2 @@
 # Ritsu
-Project Euler Solutions (Problem 65 onward)
+(bad) Project Euler Solutions (Problem 65 onward)
