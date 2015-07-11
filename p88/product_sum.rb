@@ -32,3 +32,4 @@ end
 
 ary = []
 2.upto(12000) { |i| ary.push(minimum_product_sum(i)) }
+p ary.uniq.inject(:+)
